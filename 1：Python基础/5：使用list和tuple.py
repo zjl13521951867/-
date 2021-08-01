@@ -44,11 +44,12 @@ tupleList2[3][0] = '第一'
 tupleList2[3][1] = '第二'
 print('tupleList2',tupleList2)
 
+a = [1,2,3]
+print('a=',a)
+a = tuple(a)
+print(a)
 
-# 空数组 空数组再条件判断中为false
-emp1 = []
-emp2 = ()
-if emp1:
-    print('空数组',True)
-else:
-    print('空数组',False)
+b = (1,3)
+print('b=',list(b))
+
+

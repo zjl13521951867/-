@@ -27,7 +27,20 @@ d['张三'] = 200
 # key的集合，但是不存储value
 # add(key)：添加新的key，重复添加的key不会生效 (操作不存在的key会报错)
 # remove(key)：删除指定key
-s1 = set([1,2,3,4,1])
-s1.add(6)
-s1.remove(3)
-print(s1)
+# s1 = set([1,2,3,4,1])
+# s1.add(6)
+# s1.remove(3)
+# print(s1)
+
+# set 计算集合的交集并集
+s3 = set([1,2,3,4])
+s4 = set([3,4,5,6])
+
+# 交集 两个集合中都存在的
+print(s3 & s4)
+# 并集 两个集合合并，相同的去重
+print(s3 | s4)
+# 差集
+print(s4 - s3)
+
+

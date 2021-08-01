@@ -1,8 +1,9 @@
 # 单行注释
 '''
-多行注释
-多行注释
-多行注释
+int 整数
+float 浮点数(小数)
+str 字符串
+bool 布尔值
 '''
 
 # 整数 
@@ -36,12 +37,8 @@
 a = 3
 b = 2
 c = 1
-print(a>b and a>c)
-print(not b>a)
 
-# 变量的赋值
+# 变量
 a = 10
-b = a 
-a = 30
-print(a) # 30
-print(b) # 10
+a = '1'
+print(a)
