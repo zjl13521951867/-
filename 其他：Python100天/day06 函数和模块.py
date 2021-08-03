@@ -31,7 +31,14 @@ print('----------')
 # 1：引入模块
 from next import next1 
 next1.nextConso('下级模块1')
-# 
-import next.next1
+
+print('----------')
+
+# 导入上级模块(上级目录的文件夹)
+# 添加完路径后相当于同级目录下查找
+import sys
+sys.path.append('.')
+from pythonModule import module_1
+module_1.conso('上级目录下')
 
 

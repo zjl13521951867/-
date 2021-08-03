@@ -29,6 +29,7 @@ def addList(list=[]):
 # 默认传入list / tuple
 # 参数为列表时间，如果实参无值将会报错，需要做好兼容
 # 形参和实参前面加上*，表示动态参数，不确定个数，可能没有
+# *nums 相当于将多个参数解构出来
 def add(*nums):
     num = 0
     for x in nums:
@@ -59,9 +60,10 @@ print('add2',add2([1,2,3]))
 # kw是personData的一份拷贝，改动不会影响到函数外部的personData数据
 personData = {'address':'成都'}
 def person2(name,age,**kw):
+   
     print('姓名',name)
     print('年龄',age)
-    print('扩展信息',kw)
+    print('扩展信息',kw['address'])
 person2('张三',20,**personData)
 
 
