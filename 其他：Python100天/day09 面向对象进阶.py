@@ -8,6 +8,17 @@
 # 实例和类都可以调用静态方法
 # 例：计算三角形的周长(a,b,c)，但是需要知道a,b,c能否组成三角形，所以需要一个方法来判断，通过了才走计算周长的方法
 
+# 类方法：@classmethod
+# def cls_method(cls): 这里的cls就是这个类，cls(1,2,3) 返回的就是Triangle类的实例
+
+
+# 继承
+# 子类(派生类/衍生类)
+# 子类：super().__init__(name, age, gender) name和age属性继承父类的，self._gender自己新增的属性
+# 父类(超类/基类)
+
+
+# 父类
 class Person(object):
   __slots__ = ('_name','_age')
   def __init__(self,name,age):
@@ -43,18 +54,19 @@ class Person(object):
 p1 = Person('张三',30)
 Person.get_score(99)
 
+# 子类
 class Child(Person):
   def __init__(self,name,age,gender):
     self._name = name 
     self._age = age 
     self._gender = gender 
 c1 = Child('儿子',12,'男')
-print(c1.name)
+# print(c1.name)
 Child.get_score(20)
 
 
-print('下面为练习1-----------')
-# 练习1 
+print('练习 - 三角形周长-----------')
+# 练习1
 class Triangle(object):
   def __init__(self,a,b,c):
     self._a = a 
@@ -66,14 +78,48 @@ class Triangle(object):
   def is_valid(a, b, c):
     return a + b > c and b + c > a and a + c > b
 
+  @classmethod
+  def cls_method(cls):
+    return cls(7,8,9)
+
   # 对象方法 - 计算三角形的周长
   def count_long(self):
     return self._a + self._b + self._c 
 
-# a,b,c = 3,4,5
-a,b,c = 1,2,3
+a,b,c = 3,4,5
+# a,b,c = 1,2,3
 if Triangle.is_valid(a,b,c):
   t1 = Triangle(a,b,c)
-  print('周长',t1.count_long())
+  # print('周长',t1.count_long())
 else:
   print('无法构成三角形')
+
+t2 = Triangle.cls_method()
+
+
+print('多态--------------')
+from abc import ABCMeta,abstractmethod
+# 多态性是指具有不同功能的函数可以使用相同的函数名，这样就可以用一个函数名调用不同内容的函数。
+class Pet(object,metaclass=ABCMeta):
+  def __init__(self,pet_name):
+    self._pet_name = pet_name
+  
+  # @abstractmethod 表示子类必须有这个方法
+  @abstractmethod
+  def talk(self):
+    raise AttributeError('子类必须实现这个方法')
+
+class Dog(Pet):
+  def talk(self):
+    print(f'{self._pet_name} 汪汪汪')
+Dog('狗狗').talk()
+
+class Cat(Pet):
+  def talk(self):
+    print(f'{self._pet_name} 喵喵喵')
+Cat('猫咪').talk()
+
+class Fish(Pet):
+  def talk(self):
+    print(f'{self._pet_name} 咕噜咕噜咕噜')
+Fish('鱼').talk()
