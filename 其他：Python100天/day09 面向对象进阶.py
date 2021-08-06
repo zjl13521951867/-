@@ -14,7 +14,16 @@
 
 # 继承
 # 子类(派生类/衍生类)
-# 子类：super().__init__(name, age, gender) name和age属性继承父类的，self._gender自己新增的属性
+# 子类：super().__init__(name, age) name和age属性继承父类的，self._gender自己新增的属性
+# 子类中的super就是父类，super()调用就生成了父类的实例
+'''
+  nane和age属性继承父类的
+  gender属性是自身独有的
+  def __init__(self,name,age,gender):
+    super().__init__(name,gender)
+    self._gender = grnder 
+'''
+
 # 父类(超类/基类)
 
 
@@ -93,7 +102,6 @@ if Triangle.is_valid(a,b,c):
   # print('周长',t1.count_long())
 else:
   print('无法构成三角形')
-
 t2 = Triangle.cls_method()
 
 
@@ -123,3 +131,5 @@ class Fish(Pet):
   def talk(self):
     print(f'{self._pet_name} 咕噜咕噜咕噜')
 Fish('鱼').talk()
+
+
