@@ -6,7 +6,7 @@ def getFlower(flowerList):
     ge = flower % 10 
     if (bai ** 3 + shi ** 3 + ge ** 3) == flower:
       pass 
-      # print('水仙花',flower)
+      print('水仙花',flower)
 getFlower(range(100,1000))
 
 # 练习2 百钱百鸡
