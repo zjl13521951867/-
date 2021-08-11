@@ -67,6 +67,10 @@ from time import time, sleep
     线程对象.start() 开始执行此进程
     线程对象.join() 等线程的代码执行完成才执行join()方法下的代码
 3: 线程的run()方法，线程在生成后会自动执行run()函数，所以写子类的时候会有个run()函数
+
+4：锁
+    当我们多个线程操作同一个数据时，这个数据就有可能会发生混乱
+    在操作数据前需要加上锁，在操作完成后解锁，下一次操作会在上一次操作解锁后再进行
 '''
 # from random import randint
 # from threading import Thread
@@ -179,6 +183,41 @@ def main():
     t1.join()
     t2.join()
     print('余额还有',count_money)
+
+
+
+
+import time
+import tkinter
+import tkinter.messagebox
+
+def download():
+    # 模拟下载任务需要花费10秒钟时间
+    time.sleep(10)
+    tkinter.messagebox.showinfo('提示', '下载完成!')
+
+def show_about():
+    tkinter.messagebox.showinfo('关于', '作者: 骆昊(v1.0)')
+
+def main():
+    top = tkinter.Tk()
+    top.title('单线程')
+    top.geometry('200x150')
+    top.wm_attributes('-topmost', True)
+
+    panel = tkinter.Frame(top)
+    button1 = tkinter.Button(panel, text='下载', command=download)
+    button1.pack(side='left')
+    button2 = tkinter.Button(panel, text='关于', command=show_about)
+    button2.pack(side='right')
+    panel.pack(side='bottom')
+
+    tkinter.mainloop()
+
+
+
+
+
 
 if __name__ == '__main__':
     main()
